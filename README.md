@@ -41,6 +41,8 @@ How to use it?
 
     jobs:
       publish:
+        permissions:
+          contents: write
         runs-on: ubuntu-latest
         steps:
           - name: Check out
@@ -55,10 +57,15 @@ How to use it?
 
             with:
 
-              # Optional. Default value "." means the root directory of your project will be published.
-              # You can use whatever directory your project uses, for example "wwwroot".
+              # Optional.
+              #
+              # Default value "." means the root directory of your project will be published.
+              #
+              # You can use whatever directory your project uses,
+              # for example "wwwroot" (without leading "./").
               # Such a directory does *not* have to already exist in your repo,
-              # it could be an output directory created dynamically by your static website builder.
+              # it could be an output directory created dynamically
+              # by your static website builder.
               source-directory: .
 
               # Optional. Default value "gh-pages".
