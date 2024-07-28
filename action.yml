@@ -10,7 +10,7 @@ inputs:
     required: false
     default: .
   target-branch:
-    description: The name of the branch that would be OVERWRITTEN by current workdir, you will then configure your Github Pages to serve this branch.
+    description: The name of the branch that would be REMOVED and replaced by the content of current workdir, you will then configure your Github Pages to serve this branch.
     required: false
     default: gh-pages
 

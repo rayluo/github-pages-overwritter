@@ -1,7 +1,9 @@
 Github Page Overwriter
 ======================
 
-This is a Github Action that overwrites your Github Pages branch with the content of current workdir, thus deploy/publish without polluting your repo history.
+This is a Github Action that overwrites your entire Github Pages branch
+(by replacing all commits in that branch with one commit of the content of current workdir),
+therefore deploy/publish without polluting your repo history.
 
 * This is a [summary of what `Github Page Overwriter` is](#what-is-it)
 * If you can't wait to get started, this is the [tutorial](#how-to-use-it)
@@ -21,7 +23,7 @@ Github Page Overwriter is:
   because its implementation requires no runtime dependency other than git itself.
 * the **cleanest** possible Github Page publisher,
   because it is designed to leave no extra commits in your repo history
-  (its deployment branch would be overwritten each time).
+  (its target branch would be removed and replaced with new content each time).
 
 
 How to use it?
@@ -70,7 +72,9 @@ How to use it?
 
               # Optional. Default value "gh-pages".
               # It specifies the temporary branch which hosts the static website.
-              # Each build will OVERWRITE this branch.
+              # Each build will REMOVE this branch and replace it with new content.
+              # (If you want to keep your old "gh-pages" branch,
+              # you should define a different target branch for this GPO action to work with.)
               target-branch: gh-pages
     ```
 
